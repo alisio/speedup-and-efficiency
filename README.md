@@ -1,57 +1,33 @@
-speedup-and-efficiency
-==============================
+# Cálculo da Aceleração (speedup) e Eficiência
 
-A simple parallel computing lab
+---
 
-Project Organization
-------------
+Este repositório contém um caderno jupyter que tem por objetivo calcularmos a aceleração (*speedup*) e eficiência de uma operação quando executada em paralelo. 
 
-    ├── LICENSE
-    ├── Makefile           <- Makefile with commands like `make data` or `make train`
-    ├── README.md          <- The top-level README for developers using this project.
-    ├── data
-    │   ├── external       <- Data from third party sources.
-    │   ├── interim        <- Intermediate data that has been transformed.
-    │   ├── processed      <- The final, canonical data sets for modeling.
-    │   └── raw            <- The original, immutable data dump.
-    │
-    ├── docs               <- A default Sphinx project; see sphinx-doc.org for details
-    │
-    ├── models             <- Trained and serialized models, model predictions, or model summaries
-    │
-    ├── notebooks          <- Jupyter notebooks. Naming convention is a number (for ordering),
-    │                         the creator's initials, and a short `-` delimited description, e.g.
-    │                         `1.0-jqp-initial-data-exploration`.
-    │
-    ├── references         <- Data dictionaries, manuals, and all other explanatory materials.
-    │
-    ├── reports            <- Generated analysis as HTML, PDF, LaTeX, etc.
-    │   └── figures        <- Generated graphics and figures to be used in reporting
-    │
-    ├── requirements.txt   <- The requirements file for reproducing the analysis environment, e.g.
-    │                         generated with `pip freeze > requirements.txt`
-    │
-    ├── setup.py           <- makes project pip installable (pip install -e .) so src can be imported
-    ├── src                <- Source code for use in this project.
-    │   ├── __init__.py    <- Makes src a Python module
-    │   │
-    │   ├── data           <- Scripts to download or generate data
-    │   │   └── make_dataset.py
-    │   │
-    │   ├── features       <- Scripts to turn raw data into features for modeling
-    │   │   └── build_features.py
-    │   │
-    │   ├── models         <- Scripts to train models and then use trained models to make
-    │   │   │                 predictions
-    │   │   ├── predict_model.py
-    │   │   └── train_model.py
-    │   │
-    │   └── visualization  <- Scripts to create exploratory and results oriented visualizations
-    │       └── visualize.py
-    │
-    └── tox.ini            <- tox file with settings for running tox; see tox.readthedocs.io
+Utilizaremos como exemplo uma operação que consiste no processo de otimização de modelos de aprendizado de máquina. Inicialmente carregamos o conjunto de dados `Breast Cancer`, da biblioteca scikit learn, e em seguida, dividimos esses dados em conjuntos distintos para treinamento e teste. Definimos os hiperparâmetros, como o parâmetro de regularização e o tipo de kernel, juntamente com suas possíveis variações em um grid (param_grid). Criamos um classificador SVM (SVC) e utilizamos o objeto GridSearchCV para explorar sistematicamente as combinações de hiperparâmetros, empregando a validação cruzada para avaliar o desempenho. 
+
+Ao término, recuperamos os hiperparâmetros ótimos e o melhor estimador com base nos resultados do grid search. 
+
+Com esses melhores parâmetros em mãos, procedemos à avaliação do modelo no conjunto de teste. O GridSearchCV automatiza a busca exaustiva de hiperparâmetros e oferece o conjunto ideal para ajustar o modelo, aprimorando, assim, seu desempenho.
+
+Ao empregar o GridSearchCV em um ambiente com múltiplos threads, é possível avaliar o speedup e a eficiência do processo de busca de hiperparâmetros. O speedup representa a aceleração obtida com o paralelismo, medindo a redução no tempo de execução à medida que mais threads são usados. A eficiência, por outro lado, indica o quão bem o processamento paralelo está sendo aproveitado, considerando a relação entre o número de threads e o speedup alcançado. Ao monitorar essas métricas, os profissionais de dados podem determinar o impacto da paralelização na eficiência do GridSearchCV, garantindo que os recursos computacionais sejam utilizados de forma otimizada e resultem em economia de tempo significativa
+
+## Escopo
+
+Este trabalho se concentra na avaliação do impacto do processamento paralelo, excluindo detalhes específicos sobre o aprendizado de máquina. A pesquisa explora o uso de múltiplos threads para analisar como elas podem aprimorar a aceleração e eficiência da operação do processo de treinamento do modelo de aprendizado de máquina utilizado.
 
 
---------
+# Arquivos
 
-<p><small>Project based on the <a target="_blank" href="https://drivendata.github.io/cookiecutter-data-science/">cookiecutter data science project template</a>. #cookiecutterdatascience</small></p>
+* `notebooks/speedup-and-efficiency.ipynb`: caderno jupyter com os passos do experimento
+* `data/experimento_resultado.csv`: arquivo com os resultados do experimento
+
+
+# Licença
+
+Distribuída sob licença MIT. Veja o arquivo LICENSE.txt para maiores informações.
+
+# Contato
+
+Antonio Alisio de Meneses Cordeiro
+
