@@ -16,11 +16,18 @@ Ao empregar o GridSearchCV em um ambiente com múltiplos threads, é possível a
 
 Este trabalho se concentra na avaliação do impacto do processamento paralelo, excluindo detalhes específicos sobre o aprendizado de máquina. A pesquisa explora o uso de múltiplos threads para analisar como elas podem aprimorar a aceleração e eficiência da operação do processo de treinamento do modelo de aprendizado de máquina utilizado.
 
+## Resultados
+
+Analisamos o impacto da variação no número de processos em relação ao desempenho no treinamento de um modelo de classificação baseado na base de dados Breast Cancer. Os resultados revelaram um aumento inicial na aceleração à medida que o número de processos aumentou, indicando uma melhoria no desempenho. No entanto, a partir de 20 processos, a aceleração diminuiu, sugerindo uma escalabilidade limitada. Ao mesmo tempo, o tempo de execução inicialmente diminuiu à medida que mais processos foram alocados, mas, a partir de 20 processos, começou a aumentar. É possível que isso ocorra devido ao overhead de comunicação e ineficiências na paralelização, limitando os ganhos possíveis com a paralelização no processo de treinamento do modelo de classificação utilizado, conforme preconiza a Lei de Amdahl.
+
+![](./reports/figures/speedup-time_x_processes.png)
 
 # Arquivos
 
-* `notebooks/speedup-and-efficiency.ipynb`: caderno jupyter com os passos do experimento
-* `data/experimento_resultado.csv`: arquivo com os resultados do experimento
+* `./notebooks/speedup-and-efficiency.ipynb`: caderno jupyter com os passos do experimento;
+* `./data/experimento_resultado.csv`: arquivo com os resultados do experimento;
+* `./reports/figures/`: pasta com resultados gerados.
+
 
 
 # Licença
