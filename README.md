@@ -1,4 +1,4 @@
-# Cálculo da Aceleração (speedup) e Eficiência
+# Cálculo da Aceleração (speedup) e Eficiência da Computação Paralela Para Processo de Treinamento de classificador SVM
 
 ---
 
